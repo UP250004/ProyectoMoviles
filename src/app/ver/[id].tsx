@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { router, useLocalSearchParams, useRouter} from 'expo-router';
+import { router, useLocalSearchParams} from 'expo-router';
 
 export default function EditarTarea() {
   const { id } = useLocalSearchParams(); // Obtiene el ID de la URL
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [task, setTask] = useState({ title: '', description: '' });
   useEffect(() => {
-    fetch(`http://10.10.1.4:3000/tasks/${id}`)
+    fetch(`http://10.10.145.176:3000/tasks/${id}`)
       .then(res => res.json())
       .then(data => {
-        setTitle(data.title);
-        setDescription(data.description);
+        setTask({
+          title: data.title,
+          description: data.description
+        });
       });
   }, [id]);
 
@@ -23,10 +24,10 @@ export default function EditarTarea() {
       
       <Text 
         style={styles.label} 
-      >Titulo: {title}</Text>
+      >Titulo: {task.title}</Text>
       <Text 
         style={styles.label} 
-      >Descripcion: {description}</Text>
+      >Descripcion: {task.description}</Text>
       <TouchableOpacity style={styles.Btn} onPress={ router.back}>
       <Text style={{ color: 'white' }}>Regresar</Text>
     </TouchableOpacity>
@@ -44,7 +45,6 @@ const styles = StyleSheet.create({
     marginVertical: 40,
     borderWidth: 1,
     borderColor: 'rgba(248, 226, 56, 0.3)', 
-    // Sombra para iOS
     shadowColor: '#800000',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.3,

@@ -5,11 +5,10 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 export default function EditarTarea() {
   const { id } = useLocalSearchParams(); // Obtiene el ID de la URL
   const router = useRouter();
-  
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   useEffect(() => {
-    fetch(`http://10.10.1.4:3000/tasks/${id}`)
+    fetch(`http://10.10.145.176:3000/tasks/${id}`)
       .then(res => res.json())
       .then(data => {
         setTitle(data.title);
@@ -22,10 +21,10 @@ export default function EditarTarea() {
     const datos = { title, description };
     console.log("2. Enviando datos:", datos);
 
-    const response = await fetch(`http://10.10.1.4:3000/tasks/${id}`, {
-      method: 'PATCH',
+    const response = await fetch(`http://10.10.145.176:3000/tasks/${id}`, {
+      method: 'PATCH',//solo se actualizan los campos que se envían, no es necesario enviar el objeto completo
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(datos),
+      body: JSON.stringify(datos),//en este caso solo se envia el título y la descripción, el campo "completed" no se toquetea.
     });
 
     console.log("Respuesta recibida. Status:", response.status);

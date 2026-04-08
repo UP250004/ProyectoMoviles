@@ -3,18 +3,16 @@ import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-nativ
 
 export default function Crear({ onTaskCreated }: { onTaskCreated: () => void }) {
   const [text, setText] = useState('');
-
-  //Función para enviar la tarea a la API
   const handleAdd = async () => {
     if (!text.trim()) return; // No agregar si está vacío
 
     try {
-      const response = await fetch('http://10.10.1.4:3000/tasks', {
+      const response = await fetch('http://10.10.145.176:3000/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           title: text, 
-          description: "Nueva tarea", //placeholder, se puede modificar en modificar dentro de la pagina :p
+          description: "Nueva tarea", //placeholder, se puede modificar en modificar dentro de la misma pagina :p
           completed: false 
         }),
       });

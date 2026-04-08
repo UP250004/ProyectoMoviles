@@ -5,7 +5,7 @@ import Validar from "../components/validar";
 
 export default function App() {
   const [tasks, setTasks] = useState<any[]>([]);
-  const API_URL = "http://10.10.1.4:3000/tasks";
+  const API_URL = "http://10.10.145.176:3000/tasks";
 
   const fetchTasks = async () => {
     try {
