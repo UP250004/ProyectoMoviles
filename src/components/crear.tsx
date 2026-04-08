@@ -14,7 +14,7 @@ export default function Crear({ onTaskCreated }: { onTaskCreated: () => void }) 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           title: text, 
-          description: "Nueva tarea", 
+          description: "Nueva tarea", //placeholder, se puede modificar en modificar :p
           completed: false 
         }),
       });
