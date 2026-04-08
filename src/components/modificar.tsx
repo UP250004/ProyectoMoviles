@@ -7,7 +7,7 @@ export default function Modificar({ task }: any) {
   return (
     <TouchableOpacity 
       style={styles.btn} 
-      onPress={() => router.push(`../editar/${task.id}`)} // Navega a la ruta dinámica
+      onPress={() => router.push(`../editar/${task.id}`)}
     >
       <Text>Editar</Text>
     </TouchableOpacity>

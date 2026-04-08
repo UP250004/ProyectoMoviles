@@ -6,7 +6,7 @@ export default function Ver({ task }: any) {
   return (
     <TouchableOpacity 
       style={styles.btn} 
-      onPress={() => router.push(`../ver/${task.id}`)} // Navega a la ruta dinámica
+      onPress={() => router.push(`../ver/${task.id}`)}
     >
       <Text>Ver</Text>
     </TouchableOpacity>

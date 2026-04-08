@@ -4,7 +4,7 @@ import Crear from "../components/crear";
 import Validar from "../components/validar";
 
 export default function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<any[]>([]);
   const API_URL = "http://192.168.0.198:3000/tasks";
 
   const fetchTasks = async () => {
@@ -24,8 +24,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>To-Do App</Text>
-
-      {/* Componente para Crear */}
       <Crear onTaskCreated={fetchTasks} />
 
       <FlatList
