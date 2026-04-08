@@ -7,7 +7,7 @@ export default function EditarTarea() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   useEffect(() => {
-    fetch(`http://192.168.0.198:3000/tasks/${id}`)
+    fetch(`http://10.10.1.4:3000/tasks/${id}`)
       .then(res => res.json())
       .then(data => {
         setTitle(data.title);
@@ -17,8 +17,9 @@ export default function EditarTarea() {
 
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>ID de la tarea: {id}</Text>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#e0e0e0'}}>
+      <View style={styles.container}  >
+        <Text style={styles.label}>ID de la tarea: {id}</Text>
       
       <Text 
         style={styles.label} 
@@ -29,28 +30,50 @@ export default function EditarTarea() {
       <TouchableOpacity style={styles.Btn} onPress={ router.back}>
       <Text style={{ color: 'white' }}>Regresar</Text>
     </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 250,
-    padding: 20,
-    backgroundColor: '#001d60',
-    borderRadius: 10,
-    borderWidth: 2,
-    borderColor: '#38BDF8',
+    backgroundColor: '#0f172a', 
+    borderRadius: 16,
+    padding: 24,
+    marginHorizontal: 20,
+    marginVertical: 40,
+    borderWidth: 1,
+    borderColor: 'rgba(248, 226, 56, 0.3)', 
+    // Sombra para iOS
+    shadowColor: '#800000',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.3,
+    shadowRadius: 20,
+    elevation: 10,
   },
   label: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#F1F5F9',
-    marginBottom: 15,
+    fontSize: 28,
+    fontWeight: '800', // Más grueso para dar jerarquía
+    color: '#ffffff',
+    textAlign: 'center',
+    marginBottom: 8,
+    letterSpacing: 0.5,
   },
   accentText: {
-    color: '#38BDF8',
+    color: '#38bdf8',
+    fontSize: 14,
+    fontWeight: '700',
+    textTransform: 'uppercase', // Estilo de etiqueta/tag
+    textAlign: 'center',
+    marginBottom: 20,
+    opacity: 0.9,
+  },
+  inputLabel: {
+    color: '#94a3b8', // Color grisáceo para los nombres de los campos
+    fontSize: 12,
     fontWeight: '600',
+    marginBottom: 8,
+    marginLeft: 4,
   },
   
   Btn: { backgroundColor: '#2d5a5a', padding: 15, borderRadius: 8, alignItems: 'center' }

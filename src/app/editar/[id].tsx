@@ -9,7 +9,7 @@ export default function EditarTarea() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   useEffect(() => {
-    fetch(`http://192.168.0.198:3000/tasks/${id}`)
+    fetch(`http://10.10.1.4:3000/tasks/${id}`)
       .then(res => res.json())
       .then(data => {
         setTitle(data.title);
@@ -22,7 +22,7 @@ export default function EditarTarea() {
     const datos = { title, description };
     console.log("2. Enviando datos:", datos);
 
-    const response = await fetch(`http://192.168.0.198:3000/tasks/${id}`, {
+    const response = await fetch(`http://10.10.1.4:3000/tasks/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(datos),

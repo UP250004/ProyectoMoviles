@@ -7,7 +7,7 @@ import Ver from './ver';
 export default function Validar({ task, onUpdate }: any) {
   const handleToggleComplete = async () => {
   try {
-    await fetch(`http://localhost:3000/tasks/${task.id}`, {
+    await fetch(`http://10.10.1.4:3000/tasks/${task.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: !task.completed }), // Cambia de true a false o viceversa

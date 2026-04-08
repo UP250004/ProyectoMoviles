@@ -9,7 +9,7 @@ export default function Crear({ onTaskCreated }: { onTaskCreated: () => void }) 
     if (!text.trim()) return; // No agregar si está vacío
 
     try {
-      const response = await fetch('http://192.168.0.198:3000/tasks', {
+      const response = await fetch('http://10.10.1.4:3000/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

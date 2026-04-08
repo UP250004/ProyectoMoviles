@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
 export default function Eliminar({ id, onDelete }: { id: number, onDelete: () => void }) {
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://192.168.0.198:3000/tasks/${id}`, {
+      const response = await fetch(`http://10.10.1.4:3000/tasks/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
