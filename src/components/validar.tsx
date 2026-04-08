@@ -27,13 +27,13 @@ export default function Validar({ task, onUpdate }: any) {
 </TouchableOpacity>
 
       <View style={styles.infoContainer}>
-        {/* 2. Mostrar ID y Título */}
+        {/*Mostrar ID y Título */}
         <Text style={styles.idText}># {task.id}</Text>
         <Text style={[styles.title, task.completed && styles.completedText]}>
           {task.title}
         </Text>
         
-        {/* 3. Mostrar Descripción */}
+        {/*Mostrar Descripción */}
         <Text style={styles.descriptionText}>{task.description}</Text>
       </View>
 
