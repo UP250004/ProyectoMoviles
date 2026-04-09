@@ -23,16 +23,12 @@ export default function Validar({ task, onUpdate }: any) {
   style={[styles.checkbox, task.completed ? styles.checked : styles.unchecked]} 
   onPress={handleToggleComplete}
 >
-  {task.completed && <Text style={{color: 'green'}}>✓</Text>}
 </TouchableOpacity>
-
       <View style={styles.infoContainer}>
-        {/*Mostrar ID y Título */}
         <Text style={styles.idText}># {task.id}</Text>
         <Text style={[styles.title, task.completed && styles.completedText]}>
           {task.title}
         </Text>
-        {/*Mostrar Descripción */}
         <Text style={styles.descriptionText}>{task.description}</Text>
       </View>
 

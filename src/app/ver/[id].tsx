@@ -18,19 +18,18 @@ export default function EditarTarea() {
 
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#e0e0e0'}}>
-      <View style={styles.container}  >
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#e0e0e0' }}>
+      <View style={styles.container}>
         <Text style={styles.label}>ID de la tarea: {id}</Text>
-      
-      <Text 
-        style={styles.label} 
-      >Titulo: {task.title}</Text>
-      <Text 
-        style={styles.label} 
-      >Descripcion: {task.description}</Text>
-      <TouchableOpacity style={styles.Btn} onPress={ router.back}>
-      <Text style={{ color: 'white' }}>Regresar</Text>
-    </TouchableOpacity>
+        
+        {/* Usamos un valor por defecto para que no de error si los datos no han llegado */}
+        <Text style={styles.label}>Titulo: {task.title || "Cargando..."}</Text>
+        
+        <Text style={styles.label}>Descripcion: {task.description || "Sin descripción"}</Text>
+        
+        <TouchableOpacity style={styles.Btn} onPress={() => router.back()}>
+          <Text style={{ color: 'white', fontWeight: 'bold' }}>Regresar</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

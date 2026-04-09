@@ -3,7 +3,7 @@ import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-nativ
 import { useLocalSearchParams, useRouter } from 'expo-router';
 
 export default function EditarTarea() {
-  const { id } = useLocalSearchParams(); // Obtiene el ID de la URL
+  const { id } = useLocalSearchParams(); 
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
